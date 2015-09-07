@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Timeline | Basic demo</title>
+
+    <style type="text/css">
+        body, html {
+            font-family: sans-serif;
+        }
+
+        .vis-item.vis-background.negative {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+    </style>
+
+    <script src="bower_components/vis/dist/vis.js"></script>
+    <link href="bower_components/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="visualization"></div>
+
+<script type="text/javascript">
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('visualization');
+
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet([
+        {id: 1, content: 'Cervocom', start: '2002-01-02', end : '2007-09-28', type : 'background'},
+        {id: 2, content: 'Expedia', start: '2007-10-01', end : '2009-08-28', type : 'background', className: 'negative'},
+        {id: 3, content: 'NG Travel', start: '2009-10-12', end : '2014-08-01', type : 'background'},
+        {id: 4, content: 'Docapost', start: '2014-09-11'},
+        {id: 5, content: 'item 5', start: '2013-04-25'},
+        {id: 6, content: 'item 6', start: '2013-04-27'}
+    ]);
+
+    // Configuration for the Timeline
+    var options = {
+        height: '300px',
+        min: new Date(2002, 0, 1),                // lower limit of visible range
+        max: new Date(2017, 0, 1),                // upper limit of visible range
+        zoomMin: 1000 * 60 * 60 * 24 * 356 * 7,   // 7 years in milliseconds
+        zoomMax: 1000 * 60 * 60 * 24 * 356 * 20   // 20 years in milliseconds
+    };
+
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options);
+</script>
+</body>
+</html>

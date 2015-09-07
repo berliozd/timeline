@@ -1,0 +1,17 @@
+{
+  "name": "timeline",
+  "version": "0.0.0",
+  "description": "didier berlioz cv timeline",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vis": "~4.8.1"
+  }
+}
